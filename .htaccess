@@ -1,0 +1,23 @@
+Options +FollowSymLinks -MultiViews
+
+# Turn on the RewriteEngine
+RewriteEngine On
+
+
+#  Rules
+RewriteRule ^api/blog/*$ ./api/blogs/read.php
+RewriteRule ^api/blog/([0-9]+)/*$ ./api/blogs/read_one.php?id=$1
+RewriteRule ^api/blog/create/*$ ./api/blogs/create.php
+RewriteRule ^api/blog/update/*$ ./api/blogs/update.php
+RewriteRule ^api/blog/delete/*$ ./api/blogs/delete.php
+RewriteRule ^api/admin/login/*$ ./api/admin/login.php
+RewriteRule ^api/admin/register/*$ ./api/admin/register.php
+
+RewriteRule ^/*$ ./pages/index.php
+RewriteRule ^blog/*$ ./pages/blogs/index.php
+RewriteRule ^blog/([0-9]+)/*$ ./pages/blogs/show.php?id=$1
+
+RewriteRule ^admin/*$ ./pages/admin/login.php
+RewriteRule ^admin/dashboard/*$ ./pages/admin/dashboard.php
+
+ErrorDocument 404 "<h1>404 - Page Not Found</h1>"
